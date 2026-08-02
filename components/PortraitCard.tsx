@@ -105,7 +105,7 @@ export function PortraitCard({ src, alt }: PortraitCardProps) {
     <div ref={wrapRef} className="relative will-change-transform">
       <div
         ref={cardRef}
-        className="gradient-ring rounded-[2rem] p-1.5 shadow-halo will-change-transform"
+        className="gradient-ring rounded-[2rem] p-1 shadow-halo will-change-transform"
       >
         <div className="relative aspect-[4/5] w-[200px] overflow-hidden rounded-[1.7rem] sm:w-[232px]">
           <Image
@@ -135,19 +135,19 @@ export function PortraitCard({ src, alt }: PortraitCardProps) {
         </div>
       </div>
 
-      {/* Suzuvchi teglar — glass pill'lar */}
+      {/* Suzuvchi teglar — ingichka glass pill'lar, sokin */}
       {CHIPS.map((chip) => (
         <span
           key={chip.label}
           className={
             "orbit-chip card-glass absolute z-10 flex items-center gap-1.5 rounded-full " +
-            "px-3 py-1.5 font-display text-[0.6rem] font-bold uppercase tracking-[0.2em] " +
-            "text-fg-hi shadow-card will-change-transform " +
+            "px-2.5 py-1 font-display text-[0.55rem] font-semibold uppercase tracking-[0.18em] " +
+            "text-fg-mid will-change-transform " +
             chip.className
           }
           aria-hidden
         >
-          <Icon name={chip.icon} size={12} className="text-cyan" />
+          <Icon name={chip.icon} size={11} className="text-cyan/90" />
           {chip.label}
         </span>
       ))}

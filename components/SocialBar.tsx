@@ -74,10 +74,10 @@ export function SocialBar({ socials }: SocialBarProps) {
           rel="noopener noreferrer"
           aria-label={social.platform}
           data-cursor
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-line
-                     bg-panel/60 text-fg-mid backdrop-blur transition-colors duration-300
-                     will-change-transform hover:border-iris/50 hover:text-iris-soft
-                     hover:shadow-glow active:scale-90"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-line
+                     text-fg-low transition-colors duration-300
+                     will-change-transform hover:border-cyan/40 hover:text-fg-hi
+                     active:scale-90"
         >
           <Icon name={social.icon} size={18} />
         </a>

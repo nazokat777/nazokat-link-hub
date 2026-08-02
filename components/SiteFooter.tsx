@@ -34,20 +34,20 @@ export function SiteFooter({ name }: SiteFooterProps) {
   }, []);
 
   return (
-    <footer className="mt-auto border-t border-line py-8">
-      <div className="flex flex-col items-center gap-3 text-center">
-        <p className="flex items-center gap-2 font-display text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-fg-low">
+    <footer className="mt-auto border-t border-line py-10">
+      <div className="flex flex-col items-center gap-3.5 text-center">
+        <p className="flex items-center gap-2.5 font-display text-[0.6rem] font-medium uppercase tracking-[0.3em] text-fg-low">
           Toshkent, O&apos;zbekiston
           {time && (
             <>
-              <span className="text-iris" aria-hidden>
+              <span className="text-iris/70" aria-hidden>
                 ·
               </span>
-              <span className="tabular-nums text-cyan-soft">{time}</span>
+              <span className="tabular-nums text-cyan-soft/90">{time}</span>
             </>
           )}
         </p>
-        <p className="text-xs leading-relaxed text-fg-low">
+        <p className="text-[0.7rem] leading-relaxed tracking-wide text-fg-low/80">
           © {year ?? ""} {name} — AI × Dizayn
         </p>
       </div>

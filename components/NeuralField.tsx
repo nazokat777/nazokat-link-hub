@@ -51,8 +51,8 @@ export function NeuralField() {
     };
 
     const rebuildNodes = () => {
-      // Zichlik ekran maydoniga bog'liq: mobil ~45, desktop ~90 tugun
-      const count = Math.min(90, Math.max(40, Math.round((width * height) / 22000)));
+      // Zichlik ekran maydoniga bog'liq — ataylab siyrak: shovqin emas, muhit
+      const count = Math.min(64, Math.max(32, Math.round((width * height) / 30000)));
       nodes = Array.from({ length: count }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -93,7 +93,7 @@ export function NeuralField() {
         const color = n.hue === "iris" ? "190, 149, 255" : "255, 126, 182";
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${color}, 0.55)`;
+        ctx.fillStyle = `rgba(${color}, 0.4)`;
         ctx.fill();
       }
 
@@ -117,7 +117,7 @@ export function NeuralField() {
           const mDist = Math.hypot(mx, my);
           const boost = mDist < MOUSE_DIST ? (1 - mDist / MOUSE_DIST) * 0.22 : 0;
 
-          const alpha = (1 - dist / LINK_DIST) * 0.13 + boost;
+          const alpha = (1 - dist / LINK_DIST) * 0.09 + boost;
           if (alpha < 0.015) continue;
           const bucket = Math.round(alpha * 50); // 0.02 qadam
           let seg = buckets.get(bucket);

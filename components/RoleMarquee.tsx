@@ -68,8 +68,8 @@ export function RoleMarquee({ tags }: RoleMarqueeProps) {
 
   return (
     <div
-      className="relative left-1/2 my-4 w-screen -translate-x-1/2 overflow-hidden
-                 border-y border-line bg-panel/40 py-4 backdrop-blur-sm
+      className="relative left-1/2 my-10 w-screen -translate-x-1/2 overflow-hidden
+                 border-y border-line py-3.5
                  [mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]"
     >
       {/* WCAG 2.2.2: Tab bilan yetib boriladigan pauza tugmasi. Odatda
@@ -95,11 +95,11 @@ export function RoleMarquee({ tags }: RoleMarqueeProps) {
         {items.map((tag, i) => (
           <span
             key={`${tag}-${i}`}
-            className="flex items-center gap-8 font-display text-sm font-semibold
-                       uppercase tracking-[0.25em] text-fg-low"
+            className="flex items-center gap-8 font-display text-[0.7rem] font-medium
+                       uppercase tracking-[0.3em] text-fg-low/80"
           >
             {tag}
-            <span className="text-iris" aria-hidden>
+            <span className="text-iris/60" aria-hidden>
               ✦
             </span>
           </span>

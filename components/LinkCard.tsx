@@ -75,47 +75,46 @@ export function LinkCard({ link, index = 0 }: LinkCardProps) {
       data-cursor
       className={
         "link-card card-glass group relative flex items-center gap-4 overflow-hidden " +
-        "rounded-2xl p-4 shadow-card transition-shadow duration-300 will-change-transform " +
+        "rounded-2xl p-5 transition-shadow duration-300 will-change-transform " +
         // active:scale ishlamaydi — reveal tween kartaga doimiy inline transform
         // qoldiradi; GSAP tegmaydigan brightness bilan bosish javobini beramiz
-        "active:brightness-90 sm:gap-5 sm:p-5 " +
+        "active:brightness-90 sm:gap-5 " +
         (isFeatured ? "gradient-ring hover:shadow-glow" : "hover:shadow-glow-cyan")
       }
     >
       {/* Kursorga ergashuvchi yorug' dog' */}
       <span className="card-spotlight" aria-hidden />
 
-      {/* Ikonka — gradient plita ichida */}
+      {/* Ikonka — ghost plita: bezak emas, belgi */}
       <span
         className={
-          "relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl " +
-          "border border-line bg-gradient-to-br transition-transform duration-300 " +
-          "group-hover:scale-110 " +
+          "relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full " +
+          "border border-line transition-all duration-300 group-hover:scale-105 " +
           (isFeatured
-            ? "from-iris/25 to-cyan/10 text-iris-soft"
-            : "from-panel2 to-panel text-fg-mid group-hover:text-cyan-soft")
+            ? "text-iris-soft group-hover:border-iris/40"
+            : "text-fg-low group-hover:border-cyan/30 group-hover:text-cyan-soft")
         }
       >
-        <Icon name={link.icon} size={20} />
+        <Icon name={link.icon} size={18} />
       </span>
 
       {/* Matn bloki */}
       <span className="relative flex min-w-0 flex-1 flex-col gap-0.5 text-left">
-        <span className="flex items-center gap-2">
-          <span className="text-[0.65rem] font-bold tabular-nums tracking-widest text-fg-low">
+        <span className="flex items-center gap-2.5">
+          <span className="text-[0.6rem] font-semibold tabular-nums tracking-[0.2em] text-fg-low">
             {number}
           </span>
           {isFeatured && (
-            <span className="rounded-full bg-iris/15 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-iris-soft">
-              Asosiy
+            <span className="text-[0.55rem] font-semibold uppercase tracking-[0.2em] text-iris-soft/90">
+              · Asosiy
             </span>
           )}
         </span>
-        <span className="font-display text-[1rem] font-semibold leading-snug text-fg-hi transition-colors duration-300 group-hover:text-iris-soft sm:text-[1.05rem]">
+        <span className="mt-0.5 font-display text-[1rem] font-semibold leading-snug tracking-[-0.01em] text-fg-hi transition-colors duration-300 group-hover:text-iris-soft sm:text-[1.05rem]">
           {link.title}
         </span>
         {link.description && (
-          <span className="line-clamp-2 text-[0.8rem] leading-relaxed text-fg-low">
+          <span className="mt-0.5 line-clamp-2 text-[0.8rem] leading-relaxed text-fg-low">
             {link.description}
           </span>
         )}
@@ -123,15 +122,15 @@ export function LinkCard({ link, index = 0 }: LinkCardProps) {
 
       {/* Strelka — hover'da gradient doira ichiga "uchadi" */}
       <span
-        className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden
-                   rounded-full border border-line text-fg-low transition-all duration-300
-                   group-hover:border-transparent group-hover:bg-gradient-to-br
-                   group-hover:from-iris group-hover:to-cyan group-hover:text-ink"
+        className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden
+                   rounded-full text-fg-low transition-all duration-300
+                   group-hover:bg-gradient-to-br group-hover:from-iris group-hover:to-cyan
+                   group-hover:text-ink"
         aria-hidden
       >
         <Icon
           name="ArrowUpRight"
-          size={17}
+          size={16}
           className="transition-transform duration-300 group-hover:translate-x-[2px] group-hover:translate-y-[-2px]"
         />
       </span>

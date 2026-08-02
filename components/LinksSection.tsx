@@ -81,22 +81,22 @@ export function LinksSection({ links }: LinksSectionProps) {
   );
 
   return (
-    <section ref={rootRef} aria-label="Havolalar" className="pb-4 pt-10">
-      <div className="links-heading will-reveal mb-6 flex items-end justify-between">
+    <section ref={rootRef} aria-label="Havolalar" className="pb-6 pt-6">
+      <div className="links-heading will-reveal mb-8 flex items-end justify-between">
         <div>
-          <p className="font-display text-[0.65rem] font-bold uppercase tracking-[0.4em] text-cyan">
+          <p className="font-display text-[0.6rem] font-semibold uppercase tracking-[0.35em] text-cyan/80">
             {"//"} Havolalar
           </p>
-          <h2 className="mt-2 font-display text-xl font-bold text-fg-hi sm:text-2xl">
+          <h2 className="mt-3 font-display text-xl font-bold tracking-[-0.01em] text-fg-hi sm:text-2xl">
             Meni shu yerda toping
           </h2>
         </div>
-        <span className="font-display text-xs font-semibold tabular-nums text-fg-low">
-          {String(links.length).padStart(2, "0")}
+        <span className="font-display text-[0.65rem] font-medium tabular-nums tracking-[0.2em] text-fg-low">
+          01 — {String(links.length).padStart(2, "0")}
         </span>
       </div>
 
-      <div className="links-list flex flex-col gap-3 [perspective:900px]">
+      <div className="links-list flex flex-col gap-3.5 [perspective:900px]">
         {links.map((link, index) => (
           <LinkCard key={link.id} link={link} index={index} />
         ))}

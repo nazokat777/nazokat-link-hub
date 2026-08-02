@@ -176,10 +176,11 @@ export function Hero({ profile, socials }: HeroProps) {
         <PortraitCard src={profile.avatarUrl} alt={`${profile.name} portreti`} />
       </div>
 
-      {/* Ism: harf-kaskad (oq) + maskali gradient familiya */}
+      {/* Ism: harf-kaskad (oq) + maskali gradient familiya.
+          Kattaroq o'lcham + tor tracking = xalqaro editorial daraja */}
       <h1
         ref={nameRef}
-        className="will-reveal mt-8 font-display text-[clamp(2rem,8.5vw,3.4rem)] font-bold leading-[1.08] tracking-tight text-fg-hi [perspective:600px]"
+        className="will-reveal mt-10 font-display text-[clamp(2.2rem,9vw,3.9rem)] font-bold leading-[1.04] tracking-[-0.02em] text-fg-hi [perspective:600px]"
       >
         <span className="split-line inline-block">
           <span ref={firstNameRef} className="inline-block">
@@ -193,11 +194,11 @@ export function Hero({ profile, socials }: HeroProps) {
         </span>
       </h1>
 
-      {/* Rol rotatori — scramble almashinuvchi kasblar */}
-      <p className="hero-role-line will-reveal mt-4 flex items-center justify-center gap-2 font-display text-sm font-medium tracking-wide text-fg-mid sm:text-base">
+      {/* Rol rotatori — engil vazn, keng tracking: sarlavhaga xalaqit bermaydi */}
+      <p className="hero-role-line will-reveal mt-5 flex items-center justify-center gap-2.5 font-display text-[0.8rem] font-normal uppercase tracking-[0.22em] text-fg-mid sm:text-sm">
         {/* Screen reader uchun barqaror matn; scramble esa faqat vizual */}
         <span className="sr-only">{profile.roles.join(", ")}</span>
-        <span className="text-cyan" aria-hidden>
+        <span className="text-cyan/80" aria-hidden>
           {"//"}
         </span>
         <span ref={roleRef} aria-hidden className="min-h-[1.4em] text-iris-soft">
@@ -205,26 +206,26 @@ export function Hero({ profile, socials }: HeroProps) {
         </span>
         <Icon
           name="BadgeCheck"
-          size={18}
-          className="text-cyan"
+          size={16}
+          className="text-cyan/80"
           role="img"
           aria-label="Tasdiqlangan profil"
         />
       </p>
 
-      {/* Bio */}
-      <p className="hero-bio will-reveal mx-auto mt-5 max-w-md text-[0.95rem] leading-relaxed text-fg-mid">
+      {/* Bio — o'qish kengligi 60ch atrofida, xotirjam rang */}
+      <p className="hero-bio will-reveal mx-auto mt-6 max-w-[27rem] text-[0.95rem] leading-[1.75] text-fg-mid">
         {profile.bio}
       </p>
 
-      {/* Mavjudlik signali */}
-      <p className="hero-status will-reveal mt-6 flex items-center gap-2 rounded-full border border-line bg-panel/60 px-4 py-2 text-xs font-semibold tracking-wide text-emerald-300">
+      {/* Mavjudlik signali — pill emas, bir qator: sokin ishonch */}
+      <p className="hero-status will-reveal mt-8 flex items-center gap-2.5 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-emerald-300/90">
         <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden />
         Yangi loyihalarga ochiqman
       </p>
 
       {/* Ijtimoiy tarmoqlar — magnetic ikonkalar */}
-      <div className="hero-socials will-reveal mt-7">
+      <div className="hero-socials will-reveal mt-8">
         <SocialBar socials={socials} />
       </div>
     </section>
