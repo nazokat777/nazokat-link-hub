@@ -5,6 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Icon } from "@/components/Icon";
+import { asset } from "@/lib/asset";
 
 gsap.registerPlugin(useGSAP);
 
@@ -108,7 +109,7 @@ export function PortraitCard({ src, alt }: PortraitCardProps) {
       >
         <div className="relative aspect-[4/5] w-[200px] overflow-hidden rounded-[1.7rem] sm:w-[232px]">
           <Image
-            src={src}
+            src={asset(src)}
             alt={alt}
             width={464}
             height={580}
