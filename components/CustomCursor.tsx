@@ -50,7 +50,7 @@ export function CustomCursor() {
       );
       gsap.to(ring, {
         scale: interactive ? 1.9 : 1,
-        borderColor: interactive ? "rgba(34,211,238,0.9)" : "rgba(167,139,250,0.7)",
+        borderColor: interactive ? "rgba(255,126,182,0.9)" : "rgba(212,187,255,0.7)",
         duration: 0.3,
       });
     };

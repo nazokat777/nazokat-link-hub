@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Ijtimoiy tarmoq oldindan ko'rish kartasini (OG image) generatsiya qiladi.
  * Node canvas'da chizib, `public/og.jpg` ga yozadi — reproducible, bir marta
  * ishga tushiriladi (yoki brend o'zgarsa qayta). Natija repoga commit qilinadi.
@@ -40,23 +40,23 @@ function rr(X, Y, WW, HH, r) {
 }
 
 // Fon
-x.fillStyle = "#050508";
+x.fillStyle = "#070409";
 x.fillRect(0, 0, W, H);
 
 // Aurora nurlar
 let g = x.createRadialGradient(120, -40, 0, 120, -40, 760);
-g.addColorStop(0, "rgba(139,92,246,0.45)");
-g.addColorStop(1, "rgba(139,92,246,0)");
+g.addColorStop(0, "rgba(190,149,255,0.45)");
+g.addColorStop(1, "rgba(190,149,255,0)");
 x.fillStyle = g;
 x.fillRect(0, 0, W, H);
 g = x.createRadialGradient(1180, 690, 0, 1180, 690, 680);
-g.addColorStop(0, "rgba(34,211,238,0.32)");
-g.addColorStop(1, "rgba(34,211,238,0)");
+g.addColorStop(0, "rgba(255,126,182,0.32)");
+g.addColorStop(1, "rgba(255,126,182,0)");
 x.fillStyle = g;
 x.fillRect(0, 0, W, H);
 g = x.createRadialGradient(700, 300, 0, 700, 300, 420);
-g.addColorStop(0, "rgba(232,121,249,0.14)");
-g.addColorStop(1, "rgba(232,121,249,0)");
+g.addColorStop(0, "rgba(246,193,119,0.14)");
+g.addColorStop(1, "rgba(246,193,119,0)");
 x.fillStyle = g;
 x.fillRect(0, 0, W, H);
 
@@ -84,9 +84,9 @@ const PH = 486;
 const PX = W - PW - 72;
 const PY = (H - PH) / 2;
 const bg = x.createLinearGradient(PX, PY, PX + PW, PY + PH);
-bg.addColorStop(0, "#8B5CF6");
-bg.addColorStop(0.55, "#22D3EE");
-bg.addColorStop(1, "#E879F9");
+bg.addColorStop(0, "#BE95FF");
+bg.addColorStop(0.55, "#FF7EB6");
+bg.addColorStop(1, "#F6C177");
 x.fillStyle = bg;
 rr(PX - 5, PY - 5, PW + 10, PH + 10, 36);
 x.fill();
@@ -121,7 +121,7 @@ x.restore();
 const LX = 82;
 x.textBaseline = "alphabetic";
 
-x.fillStyle = "#22D3EE";
+x.fillStyle = "#FF7EB6";
 x.font = `700 26px ${DISPLAY}`;
 x.fillText("/ /  A I   ×   D I Z A Y N", LX, 158);
 
@@ -130,9 +130,9 @@ x.font = `800 94px ${DISPLAY}`;
 x.fillText("Nazokat", LX, 270);
 
 const tg = x.createLinearGradient(LX, 0, LX + 600, 0);
-tg.addColorStop(0, "#A78BFA");
-tg.addColorStop(0.55, "#67E8F9");
-tg.addColorStop(1, "#E879F9");
+tg.addColorStop(0, "#D4BBFF");
+tg.addColorStop(0.55, "#FFA3CF");
+tg.addColorStop(1, "#F6C177");
 x.fillStyle = tg;
 x.font = `800 94px ${DISPLAY}`;
 x.fillText("Abduazizova", LX, 372);

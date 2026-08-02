@@ -1,4 +1,4 @@
-/**
+﻿/**
  * app/icon.png (32) va app/apple-icon.png (180) ni generatsiya qiladi —
  * gradient "N" brend belgisi. Next bu file-convention ikonkalarni basePath
  * bilan avtomatik chiqaradi (qo'lda asset() kerak emas). Bir marta ishga
@@ -29,12 +29,12 @@ function drawIcon(size) {
   const s = size / 64; // 64px koordinatalarda chizamiz, so'ng masshtab
 
   const g = x.createLinearGradient(0, 0, size, size);
-  g.addColorStop(0, "#8B5CF6");
-  g.addColorStop(0.55, "#22D3EE");
-  g.addColorStop(1, "#E879F9");
+  g.addColorStop(0, "#BE95FF");
+  g.addColorStop(0.55, "#FF7EB6");
+  g.addColorStop(1, "#F6C177");
 
   // Fon
-  x.fillStyle = "#050508";
+  x.fillStyle = "#070409";
   rr(x, 0, 0, size, size, 16 * s);
   x.fill();
 

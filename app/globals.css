@@ -8,11 +8,11 @@
    GSAP harakatlarni boshqaradi; CSS faqat ambient qatlamlar.
    ============================================================ */
 :root {
-  --bg: #050508;
-  --line: rgba(235, 230, 255, 0.08);
-  --iris: #8b5cf6;
-  --cyan: #22d3ee;
-  --magenta: #e879f9;
+  --bg: #070409;
+  --line: rgba(245, 230, 250, 0.09);
+  --iris: #be95ff;
+  --cyan: #ff7eb6; /* tarixiy nom — qiymat atirgul-pushti */
+  --magenta: #f6c177; /* tarixiy nom — qiymat shampan oltin */
 }
 
 @layer base {
@@ -35,7 +35,7 @@
   }
 
   ::selection {
-    background: rgba(139, 92, 246, 0.4);
+    background: rgba(255, 126, 182, 0.35);
     color: #fff;
   }
 
@@ -63,37 +63,6 @@
     opacity: 0.028;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
-  .aurora-blob {
-    position: absolute;
-    border-radius: 9999px;
-    filter: blur(90px);
-    will-change: transform;
-  }
-  .aurora-blob--iris {
-    top: -18%;
-    left: -12%;
-    height: 55vmax;
-    width: 55vmax;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.2), transparent 65%);
-    animation: aurora-drift-1 26s ease-in-out infinite alternate;
-  }
-  .aurora-blob--cyan {
-    bottom: -22%;
-    right: -14%;
-    height: 50vmax;
-    width: 50vmax;
-    background: radial-gradient(circle, rgba(34, 211, 238, 0.12), transparent 65%);
-    animation: aurora-drift-2 32s ease-in-out infinite alternate;
-  }
-  .aurora-blob--magenta {
-    top: 34%;
-    left: 46%;
-    height: 34vmax;
-    width: 34vmax;
-    background: radial-gradient(circle, rgba(232, 121, 249, 0.07), transparent 65%);
-    animation: aurora-drift-3 38s ease-in-out infinite alternate;
-  }
-
   /* Juda xira perspektiv grid — "texnologik" fazoviy kontekst */
   .grid-overlay {
     position: absolute;
@@ -123,8 +92,8 @@
     transition: opacity 0.35s ease;
     background: radial-gradient(
       260px circle at var(--mx, 50%) var(--my, 50%),
-      rgba(139, 92, 246, 0.16),
-      rgba(34, 211, 238, 0.05) 45%,
+      rgba(190, 149, 255, 0.16),
+      rgba(255, 126, 182, 0.06) 45%,
       transparent 70%
     );
     pointer-events: none;
@@ -158,12 +127,42 @@
     pointer-events: none;
   }
 
-  /* Gradient matn (ism va sarlavha aksentlari) */
+  /* Gradient matn (ism va sarlavha aksentlari) — yumshoq oquvchi sheen bilan */
   .text-gradient {
-    background: linear-gradient(100deg, #a78bfa 0%, #67e8f9 55%, #e879f9 100%);
+    background: linear-gradient(100deg, #d4bbff 0%, #ffa3cf 40%, #f6c177 70%, #d4bbff 100%);
+    background-size: 220% auto;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    animation: text-sheen 7s linear infinite;
+  }
+
+  /* Havola kartasi hoverda chetidan aylanuvchi nur (border-beam) */
+  .link-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.4px;
+    background: conic-gradient(
+      from var(--beam, 0deg),
+      transparent 0deg,
+      transparent 295deg,
+      rgba(255, 126, 182, 0.65) 330deg,
+      #fff6fa 352deg,
+      rgba(246, 193, 119, 0.6) 360deg
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    pointer-events: none;
+  }
+  .link-card:hover::after {
+    opacity: 1;
+    animation: beam-spin 2.4s linear infinite;
   }
 
   /* Mavjudlik nuqtasi pulsatsiyasi */
@@ -203,26 +202,25 @@
   initial-value: 0deg;
   inherits: false;
 }
+@property --beam {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
 
 @keyframes gb-spin {
   to {
     --gb-angle: 360deg;
   }
 }
-
-@keyframes aurora-drift-1 {
+@keyframes beam-spin {
   to {
-    transform: translate(12vw, 10vh) scale(1.15);
+    --beam: 360deg;
   }
 }
-@keyframes aurora-drift-2 {
+@keyframes text-sheen {
   to {
-    transform: translate(-10vw, -12vh) scale(1.2);
-  }
-}
-@keyframes aurora-drift-3 {
-  to {
-    transform: translate(-8vw, 9vh) scale(0.9);
+    background-position: 220% center;
   }
 }
 
@@ -230,13 +228,13 @@
   0%,
   100% {
     text-shadow:
-      3px 0 rgba(34, 211, 238, 0.55),
-      -3px 0 rgba(232, 121, 249, 0.55);
+      3px 0 rgba(255, 126, 182, 0.55),
+      -3px 0 rgba(190, 149, 255, 0.55);
   }
   50% {
     text-shadow:
-      -3px 0 rgba(34, 211, 238, 0.55),
-      3px 0 rgba(232, 121, 249, 0.55);
+      -3px 0 rgba(255, 126, 182, 0.55),
+      3px 0 rgba(190, 149, 255, 0.55);
   }
 }
 
@@ -259,7 +257,7 @@
   background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.3);
+  background: rgba(255, 126, 182, 0.3);
   border-radius: 8px;
 }
 

@@ -90,7 +90,7 @@ export function NeuralField() {
         if (n.y < -20) n.y = height + 20;
         if (n.y > height + 20) n.y = -20;
 
-        const color = n.hue === "iris" ? "139, 92, 246" : "34, 211, 238";
+        const color = n.hue === "iris" ? "190, 149, 255" : "255, 126, 182";
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${color}, 0.55)`;
@@ -135,7 +135,7 @@ export function NeuralField() {
           ctx.moveTo(seg[k], seg[k + 1]);
           ctx.lineTo(seg[k + 2], seg[k + 3]);
         }
-        ctx.strokeStyle = `rgba(139, 92, 246, ${(bucket / 50).toFixed(2)})`;
+        ctx.strokeStyle = `rgba(190, 149, 255, ${(bucket / 50).toFixed(2)})`;
         ctx.stroke();
       }
 
