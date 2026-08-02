@@ -35,7 +35,17 @@ const manrope = localFont({
   display: "swap",
 });
 
+// Ijtimoiy tarmoq oldindan ko'rish kartasi mutlaq URL talab qiladi.
+// GitHub Pages'da sayt subkatalogda; Vercel/dev'da NEXT_PUBLIC_SITE_URL
+// bilan ustidan yozish mumkin. Next opengraph-image'ni shu asosda hal qiladi.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.NEXT_PUBLIC_BASE_PATH
+    ? `https://nazokat777.github.io${process.env.NEXT_PUBLIC_BASE_PATH}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Nazokat Abduazizova — AI mutaxassis · UI/UX dizayner",
   description:
     "AI mutaxassis, AI content creator, UI/UX mutaxassis va dizayner Nazokat Abduazizova. Sun'iy intellekt va dizayn kuchi bir joyda — portfolio, Telegram kanal va bog'lanish havolalari.",
@@ -44,6 +54,19 @@ export const metadata: Metadata = {
     description:
       "Sun'iy intellekt va dizayn kuchi bir joyda. Portfolio, AI darslar va hamkorlik havolalari.",
     type: "website",
+    locale: "uz_UZ",
+    images: [
+      {
+        url: `${siteUrl}/og.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Nazokat Abduazizova — AI mutaxassis va UI/UX dizayner",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [`${siteUrl}/og.jpg`],
   },
 };
 
