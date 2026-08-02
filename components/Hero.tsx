@@ -10,6 +10,7 @@ import { Icon } from "@/components/Icon";
 import { PortraitCard } from "@/components/PortraitCard";
 import { SocialBar } from "@/components/SocialBar";
 import { introDone, delay } from "@/lib/intro";
+import { useLang } from "@/lib/i18n";
 import type { Profile, SocialLink } from "@/types";
 
 gsap.registerPlugin(useGSAP, SplitText, ScrambleTextPlugin, ScrollTrigger);
@@ -30,6 +31,8 @@ interface HeroProps {
  * kirish tvinlari `fromTo` bilan yakuniy opacity:1 ga olib boriladi.
  */
 export function Hero({ profile, socials }: HeroProps) {
+  const { t } = useLang();
+  const roles = t.roles.length > 0 ? t.roles : ["AI"];
   const rootRef = useRef<HTMLElement>(null);
   const nameRef = useRef<HTMLHeadingElement>(null);
   const firstNameRef = useRef<HTMLSpanElement>(null);
@@ -138,8 +141,7 @@ export function Hero({ profile, socials }: HeroProps) {
             "-=0.35"
           );
 
-        // Rol rotatori — cheksiz scramble tsikl
-        const roles = profile.roles.length > 0 ? profile.roles : ["AI mutaxassis"];
+        // Rol rotatori — cheksiz scramble tsikl (til lug'atidan)
         const rotator = gsap.timeline({ repeat: -1, delay: 0.4 });
         roleTl = rotator;
         roles.forEach((role) => {
@@ -197,31 +199,31 @@ export function Hero({ profile, socials }: HeroProps) {
       {/* Rol rotatori — engil vazn, keng tracking: sarlavhaga xalaqit bermaydi */}
       <p className="hero-role-line will-reveal mt-5 flex items-center justify-center gap-2.5 font-display text-[0.8rem] font-normal uppercase tracking-[0.22em] text-fg-mid sm:text-sm">
         {/* Screen reader uchun barqaror matn; scramble esa faqat vizual */}
-        <span className="sr-only">{profile.roles.join(", ")}</span>
+        <span className="sr-only">{roles.join(", ")}</span>
         <span className="text-cyan/80" aria-hidden>
           {"//"}
         </span>
         <span ref={roleRef} aria-hidden className="min-h-[1.4em] text-iris-soft">
-          {profile.roles[0] ?? "AI mutaxassis"}
+          {roles[0]}
         </span>
         <Icon
           name="BadgeCheck"
           size={16}
           className="text-cyan/80"
           role="img"
-          aria-label="Tasdiqlangan profil"
+          aria-label={t.ui.verified}
         />
       </p>
 
       {/* Bio — o'qish kengligi 60ch atrofida, xotirjam rang */}
       <p className="hero-bio will-reveal mx-auto mt-6 max-w-[27rem] text-[0.95rem] leading-[1.75] text-fg-mid">
-        {profile.bio}
+        {t.bio}
       </p>
 
       {/* Mavjudlik signali — pill emas, bir qator: sokin ishonch */}
       <p className="hero-status will-reveal mt-8 flex items-center gap-2.5 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-emerald-300/90">
         <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden />
-        Yangi loyihalarga ochiqman
+        {t.ui.status}
       </p>
 
       {/* Ijtimoiy tarmoqlar — magnetic ikonkalar */}

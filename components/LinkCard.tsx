@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Icon } from "@/components/Icon";
+import { useLang } from "@/lib/i18n";
 import type { LinkItem } from "@/types";
 
 gsap.registerPlugin(useGSAP);
@@ -22,6 +23,8 @@ const TILT_MAX = 6; // gradus — 3D og'ish chegarasi
  * Scroll-reveal'ni ota LinksSection boshqaradi (.link-card klassi orqali).
  */
 export function LinkCard({ link, index = 0 }: LinkCardProps) {
+  const { t } = useLang();
+  const copy = t.links[link.id] ?? { title: link.title, description: link.description };
   const cardRef = useRef<HTMLAnchorElement>(null);
   const number = String(index + 1).padStart(2, "0");
   const isFeatured = Boolean(link.featured);
@@ -71,7 +74,7 @@ export function LinkCard({ link, index = 0 }: LinkCardProps) {
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={link.title}
+      aria-label={copy.title}
       data-cursor
       className={
         "link-card card-glass group relative flex items-center gap-4 overflow-hidden " +
@@ -111,11 +114,11 @@ export function LinkCard({ link, index = 0 }: LinkCardProps) {
           )}
         </span>
         <span className="mt-0.5 font-display text-[1rem] font-semibold leading-snug tracking-[-0.01em] text-fg-hi transition-colors duration-300 group-hover:text-iris-soft sm:text-[1.05rem]">
-          {link.title}
+          {copy.title}
         </span>
-        {link.description && (
+        {copy.description && (
           <span className="mt-0.5 line-clamp-2 text-[0.8rem] leading-relaxed text-fg-low">
-            {link.description}
+            {copy.description}
           </span>
         )}
       </span>

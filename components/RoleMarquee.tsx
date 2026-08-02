@@ -3,12 +3,9 @@
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useLang } from "@/lib/i18n";
 
 gsap.registerPlugin(useGSAP);
-
-interface RoleMarqueeProps {
-  tags: string[];
-}
 
 /**
  * Cheksiz marquee lenta — brend teglari (AI mutaxassis ✦ AI Content ✦ ...)
@@ -16,7 +13,9 @@ interface RoleMarqueeProps {
  * WCAG 2.2.2: harakatni to'xtatish uchun Tab bilan yetib boriladigan haqiqiy
  * tugma bor; hover ham pauza qiladi (tugma holatini buzmagan holda).
  */
-export function RoleMarquee({ tags }: RoleMarqueeProps) {
+export function RoleMarquee() {
+  const { t } = useLang();
+  const tags = t.tags;
   const trackRef = useRef<HTMLDivElement>(null);
   const tweenRef = useRef<gsap.core.Tween | null>(null);
   const pausedRef = useRef(false);
@@ -82,7 +81,7 @@ export function RoleMarquee({ tags }: RoleMarqueeProps) {
                    text-fg-mid opacity-0 backdrop-blur transition-opacity duration-200
                    hover:opacity-100 focus-visible:opacity-100"
       >
-        {paused ? "Davom ettirish" : "To'xtatish"}
+        {paused ? t.ui.marqueeResume : t.ui.marqueeStop}
       </button>
 
       {/* pr-8 — flex gap'ning yakuniy bo'shlig'ini to'ldiradi: -50% siljish

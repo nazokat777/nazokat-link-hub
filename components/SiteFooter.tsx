@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLang } from "@/lib/i18n";
 
 interface SiteFooterProps {
   name: string;
@@ -21,6 +22,7 @@ function tashkentTime(): string {
  * mualliflik. Vaqt faqat klientda render bo'ladi (hydration mismatch'siz).
  */
 export function SiteFooter({ name }: SiteFooterProps) {
+  const { t } = useLang();
   const [time, setTime] = useState<string | null>(null);
   // Yil ham klientda hisoblanadi: build vaqtida qotib qolgan yil keyingi
   // yanvarda hydration mismatch va eskirgan © keltirib chiqaradi
@@ -37,7 +39,7 @@ export function SiteFooter({ name }: SiteFooterProps) {
     <footer className="mt-auto border-t border-line py-10">
       <div className="flex flex-col items-center gap-3.5 text-center">
         <p className="flex items-center gap-2.5 font-display text-[0.6rem] font-medium uppercase tracking-[0.3em] text-fg-low">
-          Toshkent, O&apos;zbekiston
+          {t.ui.footerLocation}
           {time && (
             <>
               <span className="text-iris/70" aria-hidden>
@@ -48,7 +50,7 @@ export function SiteFooter({ name }: SiteFooterProps) {
           )}
         </p>
         <p className="text-[0.7rem] leading-relaxed tracking-wide text-fg-low/80">
-          © {year ?? ""} {name} — AI × Dizayn
+          © {year ?? ""} {name} — {t.ui.footerTag}
         </p>
       </div>
     </footer>

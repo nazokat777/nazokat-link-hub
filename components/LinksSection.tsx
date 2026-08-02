@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { LinkCard } from "@/components/LinkCard";
+import { useLang } from "@/lib/i18n";
 import type { LinkItem } from "@/types";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -19,6 +20,7 @@ interface LinksSectionProps {
  * LinkCard ichida boshqaradi.
  */
 export function LinksSection({ links }: LinksSectionProps) {
+  const { t } = useLang();
   const rootRef = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -85,10 +87,10 @@ export function LinksSection({ links }: LinksSectionProps) {
       <div className="links-heading will-reveal mb-8 flex items-end justify-between">
         <div>
           <p className="font-display text-[0.6rem] font-semibold uppercase tracking-[0.35em] text-cyan/80">
-            {"//"} Havolalar
+            {t.ui.linksKicker}
           </p>
           <h2 className="mt-3 font-display text-xl font-bold tracking-[-0.01em] text-fg-hi sm:text-2xl">
-            Meni shu yerda toping
+            {t.ui.linksTitle}
           </h2>
         </div>
         <span className="font-display text-[0.65rem] font-medium tabular-nums tracking-[0.2em] text-fg-low">

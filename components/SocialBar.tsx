@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Icon } from "@/components/Icon";
+import { useLang } from "@/lib/i18n";
 import type { SocialLink } from "@/types";
 
 gsap.registerPlugin(useGSAP);
@@ -18,6 +19,7 @@ interface SocialBarProps {
  * Touch qurilmalarda oddiy tap-scale bilan ishlaydi.
  */
 export function SocialBar({ socials }: SocialBarProps) {
+  const { t } = useLang();
   const rootRef = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -63,7 +65,7 @@ export function SocialBar({ socials }: SocialBarProps) {
   return (
     <nav
       ref={rootRef}
-      aria-label="Ijtimoiy tarmoqlar"
+      aria-label={t.ui.socialsLabel}
       className="flex items-center justify-center gap-2"
     >
       {socials.map((social) => (
