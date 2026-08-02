@@ -45,6 +45,12 @@ export function Hero({ profile, socials }: HeroProps) {
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (reduced) return; // CSS o'zi kontentni ko'rsatadi (.will-reveal override)
 
+      // Portret boshqa hero elementlaridan farqli o'laroq .will-reveal (opacity:0)
+      // olmaydi — u ikki await'dan keyin quriladigan intro'gacha to'liq o'lchamda
+      // ko'rinib, so'ng scale(0)ga "sakrab" ketardi. Boshlang'ich holatni sinxron
+      // (birinchi paint'dan oldin) o'rnatamiz; gsap.context cleanup'da qaytaradi.
+      gsap.set(".hero-avatar", { scale: 0, autoAlpha: 0 });
+
       // Scroll-parallaks: pastga aylantirilganda hero qatlamlari turli
       // tezlikda suzib, sahna chuqurligini his qildiradi (scrub).
       // Sinxron yaratilgani uchun gsap.context avtomatik tozalaydi.
@@ -87,8 +93,8 @@ export function Hero({ profile, socials }: HeroProps) {
         tl.set(nameEl, { opacity: 1 })
           .fromTo(
             ".hero-avatar",
-            { scale: 0, rotate: -12 },
-            { scale: 1, rotate: 0, duration: 0.9, ease: "back.out(1.6)" }
+            { scale: 0, rotate: -12, autoAlpha: 0 },
+            { scale: 1, rotate: 0, autoAlpha: 1, duration: 0.9, ease: "back.out(1.6)" }
           )
           .from(
             split.chars,

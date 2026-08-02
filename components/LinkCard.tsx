@@ -76,7 +76,9 @@ export function LinkCard({ link, index = 0 }: LinkCardProps) {
       className={
         "link-card card-glass group relative flex items-center gap-4 overflow-hidden " +
         "rounded-2xl p-4 shadow-card transition-shadow duration-300 will-change-transform " +
-        "active:scale-[0.98] sm:gap-5 sm:p-5 " +
+        // active:scale ishlamaydi — reveal tween kartaga doimiy inline transform
+        // qoldiradi; GSAP tegmaydigan brightness bilan bosish javobini beramiz
+        "active:brightness-90 sm:gap-5 sm:p-5 " +
         (isFeatured ? "gradient-ring hover:shadow-glow" : "hover:shadow-glow-cyan")
       }
     >

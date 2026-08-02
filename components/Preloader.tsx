@@ -52,10 +52,12 @@ export function Preloader() {
 
       // Sessiya ichida takroriy tashrifda parda ko'rsatilmaydi —
       // sayt sun'iy kutish emas, kontent uchun ochiladi
+      // Faqat o'qiymiz — flagni parda haqiqatan ochilganda yozamiz (pastda).
+      // Boshida yozsak, React StrictMode dev'da ikkilamchi effekt tufayli
+      // pardani butunlay o'tkazib yuborardi.
       let seen = false;
       try {
         seen = sessionStorage.getItem("introSeen") === "1";
-        if (!seen) sessionStorage.setItem("introSeen", "1");
       } catch {
         /* private mode — parda oddiy rejimda ishlayveradi */
       }
@@ -158,6 +160,13 @@ export function Preloader() {
           stagger: 0.07,
           ease: "expo.inOut",
           onStart: () => {
+            // Parda haqiqatan ochilganda flagni yozamiz — StrictMode'ning
+            // ikkilamchi mount'i pardani o'tkazib yubormaydi
+            try {
+              sessionStorage.setItem("introSeen", "1");
+            } catch {
+              /* private mode */
+            }
             releaseMain();
             finishIntro();
           },

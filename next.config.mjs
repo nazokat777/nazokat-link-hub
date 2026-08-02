@@ -13,9 +13,10 @@ const nextConfig = {
   // uni klientga uzatamiz va `lib/asset.ts` orqali qo'lda prefiks qilamiz.
   env: { NEXT_PUBLIC_BASE_PATH: basePath },
   images: {
-    // Tashqi avatar/rasm hostlarini shu yerda ruxsat etamiz (next/image uchun).
-    remotePatterns: [{ protocol: "https", hostname: "**" }],
     // Statik eksportda Next'ning rasm optimizatsiya serveri bo'lmaydi.
+    // Eslatma: barcha rasmlar lokal (/portrait.png), shuning uchun remotePatterns
+    // shart emas. Vercel'da "**" wildcard'i ochiq rasm-proksi teshigi bo'lardi —
+    // ataylab qo'ymaymiz. Tashqi host kerak bo'lsa, aynan o'sha hostni qo'shing.
     ...(isPages && { unoptimized: true }),
   },
   ...(isPages && {
