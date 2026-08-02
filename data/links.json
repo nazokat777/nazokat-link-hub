@@ -29,7 +29,7 @@
       "icon": "Sparkles",
       "category": "portfolio",
       "featured": true,
-      "active": false
+      "active": true
     },
     {
       "id": "telegram",
@@ -38,7 +38,6 @@
       "url": "https://t.me/N_Abduazizoffa",
       "icon": "Send",
       "category": "social",
-      "featured": true,
       "active": true
     },
     {
@@ -57,7 +56,7 @@
       "url": "https://instagram.com/",
       "icon": "Instagram",
       "category": "social",
-      "active": false
+      "active": true
     },
     {
       "id": "email",
@@ -72,6 +71,8 @@
   "socials": [
     { "id": "s-telegram", "platform": "Telegram", "url": "https://t.me/N_Abduazizoffa", "icon": "Send" },
     { "id": "s-github", "platform": "GitHub", "url": "https://github.com/nazokat777", "icon": "Github" },
+    { "id": "s-instagram", "platform": "Instagram", "url": "https://instagram.com/", "icon": "Instagram" },
+    { "id": "s-linkedin", "platform": "LinkedIn", "url": "https://linkedin.com/", "icon": "Linkedin" },
     { "id": "s-email", "platform": "Email", "url": "mailto:abduazizovanazokat@gmail.com", "icon": "Mail" }
   ]
 }
