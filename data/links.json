@@ -1,0 +1,77 @@
+{
+  "profile": {
+    "name": "Nazokat Abduazizova",
+    "handle": "@nazokat",
+    "bio": "Sun'iy intellekt va dizaynni birlashtirib, brendingizni kelajakka olib chiqaman. AI content'dan tortib zamonaviy sayt va ilovalargacha — hammasi bir qo'lda.",
+    "avatarUrl": "/portrait.png",
+    "roles": [
+      "AI mutaxassis",
+      "AI Content Creator",
+      "UI/UX mutaxassis",
+      "UI/UX dizayner",
+      "Software Engineer"
+    ],
+    "tags": [
+      "AI mutaxassis",
+      "AI Content",
+      "UI/UX dizayn",
+      "Software Engineer",
+      "Prompt Engineering",
+      "Sun'iy intellekt"
+    ]
+  },
+  "links": [
+    {
+      "id": "portfolio",
+      "title": "Ishlarimni ko'ring",
+      "description": "AI va dizayn loyihalarim. Natijani o'zingiz baholang!",
+      "url": "https://example.com/portfolio",
+      "icon": "Sparkles",
+      "category": "portfolio",
+      "featured": true,
+      "active": true
+    },
+    {
+      "id": "telegram",
+      "title": "Telegram kanalim",
+      "description": "AI sirlari, promptlar va dizayn darslari har kuni. Obuna bo'ling!",
+      "url": "https://t.me/",
+      "icon": "Send",
+      "category": "social",
+      "active": true
+    },
+    {
+      "id": "github",
+      "title": "GitHub profilim",
+      "description": "AI eksperimentlar va ochiq kodli loyihalarim.",
+      "url": "https://github.com/",
+      "icon": "Github",
+      "category": "social",
+      "active": true
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram sahifam",
+      "description": "AI content va dizayn jarayonlari sahna ortidan.",
+      "url": "https://instagram.com/",
+      "icon": "Instagram",
+      "category": "social",
+      "active": true
+    },
+    {
+      "id": "email",
+      "title": "Loyihangiz bormi? Yozing!",
+      "description": "Xabaringizga 24 soat ichida javob beraman. Kafolat!",
+      "url": "mailto:hello@example.com",
+      "icon": "Mail",
+      "category": "contact",
+      "active": true
+    }
+  ],
+  "socials": [
+    { "id": "s-github", "platform": "GitHub", "url": "https://github.com/", "icon": "Github" },
+    { "id": "s-telegram", "platform": "Telegram", "url": "https://t.me/", "icon": "Send" },
+    { "id": "s-instagram", "platform": "Instagram", "url": "https://instagram.com/", "icon": "Instagram" },
+    { "id": "s-linkedin", "platform": "LinkedIn", "url": "https://linkedin.com/", "icon": "Linkedin" }
+  ]
+}

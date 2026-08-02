@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   AI FUTURIZM — GLOBAL STYLES
+   Chuqur kosmik fon, aurora nurlar, neyron-tarmoq canvas usti.
+   GSAP harakatlarni boshqaradi; CSS faqat ambient qatlamlar.
+   ============================================================ */
+:root {
+  --bg: #050508;
+  --line: rgba(235, 230, 255, 0.08);
+  --iris: #8b5cf6;
+  --cyan: #22d3ee;
+  --magenta: #e879f9;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: #f5f3ff;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Desktop'da custom cursor faol bo'lganda tizim kursorini yashiramiz */
+  body.cursor-none,
+  body.cursor-none a,
+  body.cursor-none button {
+    cursor: none;
+  }
+
+  ::selection {
+    background: rgba(139, 92, 246, 0.4);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--iris);
+    outline-offset: 4px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  /* ---------- Aurora qatlami: uch sekin suzuvchi nur blob ---------- */
+  .aurora {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .aurora::after {
+    /* Sezilmas noise — tekstura va banding'ga qarshi */
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.028;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .aurora-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(90px);
+    will-change: transform;
+  }
+  .aurora-blob--iris {
+    top: -18%;
+    left: -12%;
+    height: 55vmax;
+    width: 55vmax;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.2), transparent 65%);
+    animation: aurora-drift-1 26s ease-in-out infinite alternate;
+  }
+  .aurora-blob--cyan {
+    bottom: -22%;
+    right: -14%;
+    height: 50vmax;
+    width: 50vmax;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.12), transparent 65%);
+    animation: aurora-drift-2 32s ease-in-out infinite alternate;
+  }
+  .aurora-blob--magenta {
+    top: 34%;
+    left: 46%;
+    height: 34vmax;
+    width: 34vmax;
+    background: radial-gradient(circle, rgba(232, 121, 249, 0.07), transparent 65%);
+    animation: aurora-drift-3 38s ease-in-out infinite alternate;
+  }
+
+  /* Juda xira perspektiv grid — "texnologik" fazoviy kontekst */
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(235, 230, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(235, 230, 255, 0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 20%, transparent 75%);
+  }
+
+  /* ---------- Glass karta ---------- */
+  .card-glass {
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+    border: 1px solid rgba(235, 230, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  /* Kursorga ergashuvchi spotlight (CSS var'lar JS'dan yangilanadi) */
+  .card-spotlight {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    background: radial-gradient(
+      260px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(139, 92, 246, 0.16),
+      rgba(34, 211, 238, 0.05) 45%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+  .group:hover .card-spotlight {
+    opacity: 1;
+  }
+
+  /* ---------- Aylanuvchi konus-gradient border (featured, avatar) ---------- */
+  .gradient-ring {
+    position: relative;
+  }
+  .gradient-ring::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: conic-gradient(
+      from var(--gb-angle, 0deg),
+      var(--iris),
+      var(--cyan),
+      var(--magenta),
+      var(--iris)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    animation: gb-spin 5s linear infinite;
+    pointer-events: none;
+  }
+
+  /* Gradient matn (ism va sarlavha aksentlari) */
+  .text-gradient {
+    background: linear-gradient(100deg, #a78bfa 0%, #67e8f9 55%, #e879f9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Mavjudlik nuqtasi pulsatsiyasi */
+  .pulse-dot {
+    position: relative;
+  }
+  .pulse-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: inherit;
+    animation: ping-soft 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  /* GSAP reveal'gacha yashirin turadigan elementlar */
+  .will-reveal {
+    opacity: 0;
+  }
+
+  /* Preloader so'zi — doimiy RGB-split (chromatic aberration) glitch */
+  .glitch-word {
+    animation: glitch-shift 2.2s steps(2, end) infinite;
+  }
+
+  /* SplitText satr o'ramlari — harflar pastdan "ko'tarilib" chiqishi uchun */
+  .split-line {
+    overflow: hidden;
+    padding-bottom: 0.08em;
+    margin-bottom: -0.08em;
+  }
+}
+
+/* @property — konus gradient burchagini animatsiya qilish uchun */
+@property --gb-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes gb-spin {
+  to {
+    --gb-angle: 360deg;
+  }
+}
+
+@keyframes aurora-drift-1 {
+  to {
+    transform: translate(12vw, 10vh) scale(1.15);
+  }
+}
+@keyframes aurora-drift-2 {
+  to {
+    transform: translate(-10vw, -12vh) scale(1.2);
+  }
+}
+@keyframes aurora-drift-3 {
+  to {
+    transform: translate(-8vw, 9vh) scale(0.9);
+  }
+}
+
+@keyframes glitch-shift {
+  0%,
+  100% {
+    text-shadow:
+      3px 0 rgba(34, 211, 238, 0.55),
+      -3px 0 rgba(232, 121, 249, 0.55);
+  }
+  50% {
+    text-shadow:
+      -3px 0 rgba(34, 211, 238, 0.55),
+      3px 0 rgba(232, 121, 249, 0.55);
+  }
+}
+
+@keyframes ping-soft {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  80%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 8px;
+}
+
+/* JS o'chirilgan bo'lsa — kontent ko'rinsin, preloader yo'qolsin */
+.no-js-visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  /* Harakat o'chirilganda GSAP ishlamaydi — kontent darhol ko'rinadi */
+  .will-reveal {
+    opacity: 1;
+  }
+}
