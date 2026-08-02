@@ -86,14 +86,14 @@ export function LinksSection({ links }: LinksSectionProps) {
     <section ref={rootRef} aria-label="Havolalar" className="pb-6 pt-6">
       <div className="links-heading will-reveal mb-8 flex items-end justify-between">
         <div>
-          <p className="font-display text-[0.6rem] font-semibold uppercase tracking-[0.35em] text-cyan/80">
+          <p className="font-mono text-[0.6rem] uppercase tracking-[0.3em] text-cyan/80">
             {t.ui.linksKicker}
           </p>
-          <h2 className="mt-3 font-display text-xl font-bold tracking-[-0.01em] text-fg-hi sm:text-2xl">
+          <h2 className="mt-3 font-display text-2xl font-semibold tracking-tightest text-fg-hi sm:text-[1.7rem]">
             {t.ui.linksTitle}
           </h2>
         </div>
-        <span className="font-display text-[0.65rem] font-medium tabular-nums tracking-[0.2em] text-fg-low">
+        <span className="font-mono text-[0.65rem] tabular-nums tracking-[0.1em] text-fg-low">
           01 — {String(links.length).padStart(2, "0")}
         </span>
       </div>

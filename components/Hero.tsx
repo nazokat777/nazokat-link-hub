@@ -178,29 +178,29 @@ export function Hero({ profile, socials }: HeroProps) {
         <PortraitCard src={profile.avatarUrl} alt={`${profile.name} portreti`} />
       </div>
 
-      {/* Ism: harf-kaskad (oq) + maskali gradient familiya.
-          Kattaroq o'lcham + tor tracking = xalqaro editorial daraja */}
+      {/* Ism: og'irlik kontrasti — yengil oq ism + qalin gradient familiya.
+          Katta o'lcham + juda tor tracking = xalqaro editorial "WOW". */}
       <h1
         ref={nameRef}
-        className="will-reveal mt-10 font-display text-[clamp(2.2rem,9vw,3.9rem)] font-bold leading-[1.04] tracking-[-0.02em] text-fg-hi [perspective:600px]"
+        className="will-reveal mt-10 font-display text-[clamp(2.4rem,9.5vw,4.2rem)] leading-[1.0] tracking-tightest text-fg-hi [perspective:600px]"
       >
         <span className="split-line inline-block">
-          <span ref={firstNameRef} className="inline-block">
+          <span ref={firstNameRef} className="inline-block font-light">
             Nazokat
           </span>
         </span>{" "}
         <span className="split-line inline-block">
-          <span className="hero-surname text-gradient inline-block will-change-transform">
+          <span className="hero-surname text-gradient inline-block font-extrabold will-change-transform">
             Abduazizova
           </span>
         </span>
       </h1>
 
-      {/* Rol rotatori — engil vazn, keng tracking: sarlavhaga xalaqit bermaydi */}
-      <p className="hero-role-line will-reveal mt-5 flex items-center justify-center gap-2.5 font-display text-[0.8rem] font-normal uppercase tracking-[0.22em] text-fg-mid sm:text-sm">
+      {/* Rol rotatori — monospace texnik ohang: "// rol ·" */}
+      <p className="hero-role-line will-reveal mt-6 flex items-center justify-center gap-2.5 font-mono text-[0.72rem] uppercase tracking-[0.2em] text-fg-mid sm:text-[0.8rem]">
         {/* Screen reader uchun barqaror matn; scramble esa faqat vizual */}
         <span className="sr-only">{roles.join(", ")}</span>
-        <span className="text-cyan/80" aria-hidden>
+        <span className="text-cyan/70" aria-hidden>
           {"//"}
         </span>
         <span ref={roleRef} aria-hidden className="min-h-[1.4em] text-iris-soft">
@@ -208,8 +208,8 @@ export function Hero({ profile, socials }: HeroProps) {
         </span>
         <Icon
           name="BadgeCheck"
-          size={16}
-          className="text-cyan/80"
+          size={15}
+          className="text-cyan/70"
           role="img"
           aria-label={t.ui.verified}
         />
@@ -221,7 +221,7 @@ export function Hero({ profile, socials }: HeroProps) {
       </p>
 
       {/* Mavjudlik signali — pill emas, bir qator: sokin ishonch */}
-      <p className="hero-status will-reveal mt-8 flex items-center gap-2.5 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-emerald-300/90">
+      <p className="hero-status will-reveal mt-8 flex items-center gap-2.5 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-emerald-300/90">
         <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden />
         {t.ui.status}
       </p>

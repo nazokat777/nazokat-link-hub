@@ -38,7 +38,7 @@ export function SiteFooter({ name }: SiteFooterProps) {
   return (
     <footer className="mt-auto border-t border-line py-10">
       <div className="flex flex-col items-center gap-3.5 text-center">
-        <p className="flex items-center gap-2.5 font-display text-[0.6rem] font-medium uppercase tracking-[0.3em] text-fg-low">
+        <p className="flex items-center gap-2.5 font-mono text-[0.6rem] uppercase tracking-[0.22em] text-fg-low">
           {t.ui.footerLocation}
           {time && (
             <>
@@ -49,7 +49,7 @@ export function SiteFooter({ name }: SiteFooterProps) {
             </>
           )}
         </p>
-        <p className="text-[0.7rem] leading-relaxed tracking-wide text-fg-low/80">
+        <p className="font-mono text-[0.65rem] tracking-[0.05em] text-fg-low/80">
           © {year ?? ""} {name} — {t.ui.footerTag}
         </p>
       </div>

@@ -94,8 +94,8 @@ export function RoleMarquee() {
         {items.map((tag, i) => (
           <span
             key={`${tag}-${i}`}
-            className="flex items-center gap-8 font-display text-[0.7rem] font-medium
-                       uppercase tracking-[0.3em] text-fg-low/80"
+            className="flex items-center gap-8 font-mono text-[0.7rem]
+                       uppercase tracking-[0.28em] text-fg-low/80"
           >
             {tag}
             <span className="text-iris/60" aria-hidden>

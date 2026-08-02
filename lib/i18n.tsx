@@ -47,6 +47,7 @@ interface Dict {
     marqueeResume: string;
     socialsLabel: string;
     langLabel: string;
+    featured: string;
   };
 }
 
@@ -101,6 +102,7 @@ export const dict: Record<Lang, Dict> = {
       marqueeResume: "Davom ettirish",
       socialsLabel: "Ijtimoiy tarmoqlar",
       langLabel: "Til",
+      featured: "Asosiy",
     },
   },
   en: {
@@ -153,6 +155,7 @@ export const dict: Record<Lang, Dict> = {
       marqueeResume: "Resume",
       socialsLabel: "Social links",
       langLabel: "Language",
+      featured: "Featured",
     },
   },
   ru: {
@@ -205,6 +208,7 @@ export const dict: Record<Lang, Dict> = {
       marqueeResume: "Продолжить",
       socialsLabel: "Социальные сети",
       langLabel: "Язык",
+      featured: "Избранное",
     },
   },
 };

@@ -37,8 +37,36 @@ const config: Config = {
         magenta: "#F6C177",
       },
       fontFamily: {
-        display: ["var(--font-display)", "sans-serif"],
-        body: ["var(--font-body)", "sans-serif"],
+        // Latin uchun self-hosted; Kirill (ru) uchun yuqori sifatli tizim fallback
+        display: [
+          "var(--font-display)",
+          "system-ui",
+          "Segoe UI",
+          "Helvetica Neue",
+          "sans-serif",
+        ],
+        body: [
+          "var(--font-body)",
+          "Inter",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "sans-serif",
+        ],
+        // Texnik/raqamli aksentlar uchun (kicker, indeks, vaqt, hisoblagich)
+        mono: [
+          "ui-monospace",
+          "SFMono-Regular",
+          "SF Mono",
+          "JetBrains Mono",
+          "Menlo",
+          "Consolas",
+          "monospace",
+        ],
+      },
+      letterSpacing: {
+        tightest: "-0.045em",
       },
       boxShadow: {
         // Karta: ustki ichki yorug'lik chizig'i + yumshoq tashqi soya

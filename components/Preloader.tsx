@@ -204,12 +204,12 @@ export function Preloader() {
                 className={`frame-handle absolute h-2 w-2 border border-cyan bg-ink ${pos}`}
               />
             ))}
-            <span className="frame-label absolute -top-7 left-0 font-display text-[0.6rem] font-bold uppercase tracking-[0.35em] text-cyan">
-              AI × Dizayn
+            <span className="frame-label absolute -top-7 left-0 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-cyan">
+              AI × Design
             </span>
             <span
               ref={dimsRef}
-              className="frame-dims absolute -bottom-7 right-0 font-display text-[0.6rem] font-semibold tabular-nums tracking-[0.25em] text-fg-low"
+              className="frame-dims absolute -bottom-7 right-0 font-mono text-[0.6rem] tabular-nums tracking-[0.15em] text-fg-low"
             >
               0 × 0
             </span>
@@ -217,7 +217,7 @@ export function Preloader() {
 
           <span
             ref={wordRef}
-            className="glitch-word font-display text-[clamp(2.6rem,13vw,6.5rem)] font-extrabold tracking-tight text-fg-hi"
+            className="glitch-word font-display text-[clamp(2.6rem,13vw,6.5rem)] font-extrabold tracking-tightest text-fg-hi"
           >
             AI
           </span>
@@ -231,7 +231,7 @@ export function Preloader() {
         </div>
 
         {/* Burchak hisoblagich — editorial detal */}
-        <span className="absolute bottom-8 right-8 font-display text-sm font-bold tabular-nums tracking-[0.3em] text-fg-low">
+        <span className="absolute bottom-8 right-8 font-mono text-sm font-medium tabular-nums tracking-[0.2em] text-fg-low">
           <span ref={counterRef} className="text-fg-hi">
             000
           </span>

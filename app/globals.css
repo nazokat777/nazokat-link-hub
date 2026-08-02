@@ -25,6 +25,17 @@
     color: #f5f3ff;
     min-height: 100vh;
     overflow-x: hidden;
+    /* Optik nozikliklar — xalqaro tipografik daraja */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "kern", "liga", "calt";
+  }
+
+  /* Display sarlavhalarda raqamlar tekis (tabular) va tor kernng */
+  h1,
+  h2 {
+    font-feature-settings: "kern", "ss01", "case";
   }
 
   /* Desktop'da custom cursor faol bo'lganda tizim kursorini yashiramiz */

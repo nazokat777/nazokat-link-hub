@@ -104,12 +104,12 @@ export function LinkCard({ link, index = 0 }: LinkCardProps) {
       {/* Matn bloki */}
       <span className="relative flex min-w-0 flex-1 flex-col gap-0.5 text-left">
         <span className="flex items-center gap-2.5">
-          <span className="text-[0.6rem] font-semibold tabular-nums tracking-[0.2em] text-fg-low">
+          <span className="font-mono text-[0.62rem] tabular-nums tracking-[0.1em] text-fg-low">
             {number}
           </span>
           {isFeatured && (
-            <span className="text-[0.55rem] font-semibold uppercase tracking-[0.2em] text-iris-soft/90">
-              · Asosiy
+            <span className="font-mono text-[0.55rem] uppercase tracking-[0.2em] text-iris-soft/90">
+              ● {t.ui.featured}
             </span>
           )}
         </span>
