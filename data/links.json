@@ -35,7 +35,7 @@
       "id": "telegram",
       "title": "Telegram kanalim",
       "description": "AI sirlari, promptlar va dizayn darslari har kuni. Obuna bo'ling!",
-      "url": "https://t.me/",
+      "url": "https://t.me/N_Abduazizoffa",
       "icon": "Send",
       "category": "social",
       "active": true
@@ -44,7 +44,7 @@
       "id": "github",
       "title": "GitHub profilim",
       "description": "AI eksperimentlar va ochiq kodli loyihalarim.",
-      "url": "https://github.com/",
+      "url": "https://github.com/nazokat777",
       "icon": "Github",
       "category": "social",
       "active": true
@@ -69,8 +69,8 @@
     }
   ],
   "socials": [
-    { "id": "s-github", "platform": "GitHub", "url": "https://github.com/", "icon": "Github" },
-    { "id": "s-telegram", "platform": "Telegram", "url": "https://t.me/", "icon": "Send" },
+    { "id": "s-github", "platform": "GitHub", "url": "https://github.com/nazokat777", "icon": "Github" },
+    { "id": "s-telegram", "platform": "Telegram", "url": "https://t.me/N_Abduazizoffa", "icon": "Send" },
     { "id": "s-instagram", "platform": "Instagram", "url": "https://instagram.com/", "icon": "Instagram" },
     { "id": "s-linkedin", "platform": "LinkedIn", "url": "https://linkedin.com/", "icon": "Linkedin" }
   ]
